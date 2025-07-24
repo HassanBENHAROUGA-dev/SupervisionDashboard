@@ -1,0 +1,48 @@
+<div class="year-header">
+  <div class="year-text cursor-pointer" (click)="toggleYearList($event)">
+    <span>{{ displayedYear }}</span>
+    <button mat-button>
+      <mat-icon>expand_more</mat-icon>
+    </button>
+  </div>
+  <div class="year-nav" *ngIf='showMonthList'>
+    <button mat-button (click)="decrement($event)" [disabled]="isPreviousButtonDisabled()">
+      <mat-icon svgIcon="arrow-simple-left"></mat-icon>
+    </button>
+    <button mat-button (click)="increment($event)" [disabled]="isNextButtonDisabled()">
+      <mat-icon svgIcon="arrow-simple-right"></mat-icon>
+    </button>
+  </div>
+</div>
+<mat-divider class="width-100"></mat-divider>
+@if (showMonthList) {
+  <div class="months-container">
+    <button
+      mat-button
+      *ngFor="let month of months; let i = index"
+      [disabled]="isMonthButtonDisabled(i)"
+      [class.activeMonth]="isActiveMonth(i)"
+      [class.selected]="isSelectedMonth(i)"
+      (click)="selectMonth(i)"
+      class="calendar-element-font"
+    >
+      {{ month }}
+      <span *ngIf="getNotificationNumber(i, displayedYear).length > 0" class="alert-badge">
+        {{ getNotificationNumber(i, displayedYear) }}
+      </span>
+    </button>
+  </div>
+} @else {
+  <div class="year-container">
+    <button
+      mat-button
+      *ngFor="let year of yearList; let i = index"
+      class="calendar-element-font"
+      [class.selected]="isYearSelected(year)"
+      [disabled]="isYearButtonDisabled(year)"
+      (click)="selectYear($event, year)"
+    >
+      {{ year }}
+    </button>
+  </div>
+}

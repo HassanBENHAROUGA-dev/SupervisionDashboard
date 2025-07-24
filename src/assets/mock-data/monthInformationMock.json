@@ -1,0 +1,37 @@
+[
+  {
+    "monthNumber": 0,
+    "yearNumber": 2025,
+    "notificationNumber": 2
+  },
+  {
+    "monthNumber": 1,
+    "yearNumber": 2025,
+    "notificationNumber": 0
+  },
+  {
+    "monthNumber": 2,
+    "yearNumber": 2025,
+    "notificationNumber": 5
+  },
+  {
+    "monthNumber": 3,
+    "yearNumber": 2025,
+    "notificationNumber": 1
+  },
+  {
+    "monthNumber": 4,
+    "yearNumber": 2025,
+    "notificationNumber": 3
+  },
+  {
+    "monthNumber": 5,
+    "yearNumber": 2025,
+    "notificationNumber": 0
+  },
+  {
+    "monthNumber": 6,
+    "yearNumber": 2025,
+    "notificationNumber": 120
+  }
+]

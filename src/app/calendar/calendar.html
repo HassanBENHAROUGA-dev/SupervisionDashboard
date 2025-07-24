@@ -1,0 +1,98 @@
+<div class="monthly-calendar-container">
+  <div class="monthly-calendar-container-days">
+    <h1 class="title">Journal de bord</h1>
+    <div class="month-header">
+      <div class="display-flex flex-align-item-center cursor-pointer" [matMenuTriggerFor]="menu">
+        <div class="display-flex-col flex-align-item-center">
+        <span class="displayed-month"
+        >{{ getMonthName(displayedDate.getMonth()) }} {{ displayedDate.getFullYear() }}</span
+        >
+          <mat-divider class="width-100"></mat-divider>
+        </div>
+        <button mat-button class="open-calendar-button">
+          <mat-icon class="arrow-down" svgIcon="arrow_drop_down"></mat-icon>
+        </button>
+      </div>
+      <div class="display-flex">
+        <button mat-button (click)="decrementSelectedMonth()" [disabled]="isDecrementMonthDisabled()">
+          <mat-icon svgIcon="arrow-simple-left"></mat-icon>
+        </button>
+        <button mat-button (click)="incrementSelectedMonth()" [disabled]="isIncrementMonthDisabled()">
+          <mat-icon svgIcon="arrow-simple-right"></mat-icon>
+        </button>
+      </div>
+    </div>
+    <mat-menu #menu="matMenu" xPosition="after" yPosition="below">
+      <ng-template matMenuContent>
+        <app-year-month-calendar
+          class="display-flex-col"
+          [maxDate]="maxDate"
+          [minDate]="minDate"
+          (selectedDateEventEmitter)="updateSelectedDate($event)"
+          [selectedDate]="selectedDate"
+        >
+        </app-year-month-calendar>
+      </ng-template>
+    </mat-menu>
+
+    <div class="select-days">
+      @for (day of WEEK_DAYS; track $index) {
+      <span class="week-day">{{ day }}</span>
+        }
+    </div>
+    <mat-divider class="width-100"></mat-divider>
+    <div class="days">
+     @for (day of days; track $index) {
+      <div [class.empty]="day === 0">
+        @if (day !== 0) {
+        <div
+          class="day-item"
+          [class.grayed-out]="isDayDisabled(day)"
+          [class.selected]="isDaySelected(day)"
+          (click)="onDaySelected(day)"
+        >
+        <span
+          class="day"
+          [class.grayed-out]="isDayDisabled(day)"
+          [class.notification]=" monthDayList.length>0 ? monthDayList[day - 1].notification : 0"
+        >
+          {{ day }}
+        </span>
+          @if (!isDayDisabled(day) && monthDayList.length>0) {
+          <ng-container>
+           @if (monthDayList[day - 1].computed){
+            <mat-icon class="alert-icon" svgIcon="green-check"></mat-icon>
+           }
+            @if (monthDayList[day - 1].alert){
+              <mat-icon
+              class="add-alert red-alert-color"
+              svgIcon="add_alert"
+            ></mat-icon>
+            }
+            @if (monthDayList[day - 1].notification){
+              <mat-icon class="alert-circle" svgIcon="ellipse_blue"></mat-icon>
+            }
+            @if (!monthDayList[day - 1].computed){
+            <mat-icon class="alert-icon" svgIcon="warning_outline"></mat-icon>
+            }
+          </ng-container>
+          }
+        </div>
+        }
+      </div>
+     }
+    </div>
+  </div>
+  <mat-divider class="margin-top-2rem"></mat-divider>
+  <div class="legend-container legend-icon">
+    <mat-icon class="margin-left-1rem" svgIcon="green-check"></mat-icon>
+    <p class="legend-text">Journée calculée</p>
+    <mat-icon svgIcon="warning_outline"></mat-icon>
+    <p class="legend-text">Journée non calculée</p>
+    <mat-icon class="red-alert-color" svgIcon="add_alert"></mat-icon>
+    <p class="legend-text">Alerte</p>
+    <mat-icon svgIcon="ellipse_blue"></mat-icon>
+    <p class="legend-text">Notification</p>
+  </div>
+  <mat-divider></mat-divider>
+</div>

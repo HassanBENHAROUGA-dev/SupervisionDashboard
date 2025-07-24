@@ -1,6 +1,5 @@
-class DayInformation{
-  date: Date = new Date();
-  computed: boolean = false;
-  alert: boolean = false;
-  notification: boolean = false;
+class MonthInformation{
+  monthNumber!: number;
+  yearNumber!: number;
+  notificationNumber!: number;
 }

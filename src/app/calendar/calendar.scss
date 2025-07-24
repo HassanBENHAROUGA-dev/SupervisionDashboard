@@ -1,0 +1,147 @@
+.monthly-calendar-container {
+  width: 65rem;
+  font-family: 'Open Sans', sans-serif;
+  background: white;
+  height: 72rem;
+  box-shadow:
+    0 4px 10px 0 rgba(0, 0, 0, 0.1),
+    0 2px 6px 0 rgba(0, 0, 0, 0.16);
+  padding: 2.4rem;
+}
+
+.month-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.displayed-month {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.select-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.week-day {
+  height: 1.8rem;
+  font-weight: 400;
+  font-size: 1.4rem;
+  text-align: center;
+  color: #999fa1;
+}
+
+.days {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  height: 75%;
+}
+
+.days div {
+  height: 7rem;
+}
+
+.days div.empty {
+  background: none;
+}
+
+.selected {
+  background-color: #b2e5f7 !important;
+  border-radius: 2rem;
+  cursor: default;
+}
+
+.title {
+  margin-top: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.day-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.day-item:hover {
+  background-color: #eaeced;
+  border-radius: 2rem;
+}
+
+.day {
+  color: #11161a;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 3rem;
+  font-style: normal;
+}
+
+.legend-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  height: 3.2rem;
+}
+
+.arrow-down {
+  margin-top: 30% !important;
+}
+
+.legend-container p {
+  margin-right: 2rem;
+}
+
+.open-calendar-button {
+  width: 1rem;
+}
+
+.alert-circle {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+}
+
+.add-alert {
+  position: absolute;
+  top: 0.2rem;
+  right: 1.8rem;
+}
+
+.alert-icon {
+  position: absolute;
+  bottom: 0.6rem;
+}
+
+.legend-text {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+}
+
+.grayed-out {
+  color: grey;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.monthly-calendar-container-days {
+  display: flex;
+  flex-direction: column;
+  height: 66rem;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+

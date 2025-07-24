@@ -1,0 +1,93 @@
+.year-text {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  left: 1rem;
+}
+
+.year-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.2rem;
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+}
+
+.year-nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.months-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.3rem;
+  justify-items: center;
+  margin: 1rem;
+}
+
+.year-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.3rem;
+  justify-items: center;
+  margin: 1rem;
+}
+
+.activeMonth {
+  background-color: #96ddff;
+  border-radius: 2rem;
+}
+
+.selected {
+  background-color: #2cb7f0;
+  color: white;
+  border-radius: 2rem;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.5rem;
+  transition:
+    box-shadow 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
+}
+
+.alert-badge {
+  position: absolute;
+  top: -0.4rem;
+  right: -1.5rem;
+  background-color: #ee695c;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 1.7rem;
+  height: 1.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-element-font {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: normal !important;
+}
+
+.day-calendar {
+  width: 34rem;
+}
