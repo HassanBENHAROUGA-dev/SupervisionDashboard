@@ -1,7 +1,6 @@
 import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import dayjs from 'dayjs';
 import {MatButton} from '@angular/material/button';
-import {NgForOf, NgIf} from '@angular/common';
 import {MatDivider} from '@angular/material/divider';
 import {MatIcon} from '@angular/material/icon';
 import {HttpClient} from '@angular/common/http';
@@ -11,8 +10,6 @@ import {HttpClient} from '@angular/common/http';
   imports: [
     MatButton,
     MatIcon,
-    NgForOf,
-    NgIf,
     MatDivider
   ],
   templateUrl: './year-month-calendar.html',
